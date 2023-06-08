@@ -7,5 +7,5 @@ import (
 
 func MountRouters(app *fiber.App) {
 	app.Post("/url-shortner", handlers.UrlShortner)
-	app.Get("/:url", handlers.UrlRedirect)
+	app.Get("/:alias", handlers.UrlRedirect)
 }

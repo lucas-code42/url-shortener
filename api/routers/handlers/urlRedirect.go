@@ -6,15 +6,15 @@ import (
 )
 
 func UrlRedirect(c *fiber.Ctx) error {
-	alias := c.Params("url")
+	alias := c.Params("alias")
 
 	redis := db.MountRedis()
 	defer redis.CloseDb()
 
 	r, err := redis.Get(alias)
 	if err != nil {
-		return c.JSON(map[string]string{"msg": "error"})
+		return c.JSON(map[string]string{"msg": "cant find reference"})
 	}
 
-	return c.Redirect(r, 302)
+	return c.Redirect(r, 303)
 }

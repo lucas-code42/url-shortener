@@ -3,4 +3,4 @@ start-redis:
 
 
 run:
-	go build main.go && ./main
+	go mod tidy && go build main.go && ./main
